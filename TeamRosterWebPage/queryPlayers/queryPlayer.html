@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+<title>Assignment 10</title>
+
+<script src="jquery-1.11.1.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	$( window ).load(function() {
+
+        $.ajax({url: "queryPlayer.php", success: function(result){
+
+            $("#playerTable").html(result);
+
+        }});
+		  });
+    $("#jersey").keyup(function() {
+        $.get("queryPlayer.php", {lastname:$('#lastName').val()},
+
+            function(result){
+
+                  $("#customerTable").html(result);
+
+            });
+
+    });
+
+});
+
+</script>
+
+</head>
+
+<body>
+
+<H1>Player Table</H1>
+	<p>
+		Player Jersey: <input id = "jersey" type = "text" name = "jersey">
+	</p>
+
+<div id="targetDiv"></div>
+
+<table border='2' width="50%" id="playerTable"></table>
+
+</body>
+
+</html>
+
+<br>
+<a href="../homepage.html"> <-- Back to Home Page </a>

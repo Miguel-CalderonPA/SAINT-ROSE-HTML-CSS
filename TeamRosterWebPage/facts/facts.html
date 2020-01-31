@@ -1,0 +1,115 @@
+<html>
+<head>
+<script>
+
+	var XMLHttpRequestObject = false;
+
+	if (window.XMLHttpRequest) {
+		XMLHttpRequestObject = new XMLHttpRequest();
+	}
+	else if (window.ActiveXObject) {
+		XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+//-------------------------------------------------------------------------------
+
+	function getData(dataSource, divID) {
+		if(XMLHttpRequestObject) {
+			var obj = document.getElementById(divID);
+			obj.innerHTML ="";
+			XMLHttpRequestObject.open("POST", dataSource);
+			XMLHttpRequestObject.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			XMLHttpRequestObject.onreadystatechange =
+				function() {
+					if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+							obj.innerHTML = XMLHttpRequestObject.responseText;
+					}
+				}
+			XMLHttpRequestObject.send(null);
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div class="theForm">
+
+		<H1>Green Bay Packers Facts</H1>
+
+		<form>
+
+			<hr>
+
+			<input type = "button" value = "Packers Info" onclick = "getData('facts.php?', 'targetDiv')">
+
+		</form>
+
+		<div id="targetDiv">
+
+			<p>Packers info will show here.</p>
+
+		</div>
+	</div>
+</body>
+
+</html>
+<a href="../homepage.html"> <-- Back to Home Page </a>
+<title> Random Facts	</title>
+<style>
+
+body 
+{
+	background-image: url("https://i.redd.it/wiq0idzwahk11.jpg");
+	background-color:#000000;
+	background-size:contain;
+	background-postion:fliph;
+	font-size:20px;
+	font-weight:bold;
+	color:#f3b7c3;
+
+	}
+	img#one
+	{
+	float:left;
+	}
+	img#two
+	{
+	float:right;
+	}
+
+	h1,h6
+	{
+	color:#fcba03;
+	text-align:center;
+	}
+
+	table
+	{
+	text-align:left;
+	color:#;
+	background-color:#f3b7c3;
+	}
+
+	.theForm
+	{
+	text-align:left;color:#fcba03;
+	background-color:#000000;opacity:0.8;
+	padding:10px;
+	
+	}
+
+	a
+	{
+	font-size:18px;
+	background-color:#ffff00;
+	border: 2px dashed #000000;
+	padding:1px;
+	}
+	
+	p
+	{
+	font-size:22px;
+	padding:1px;
+	text-align:center;
+	}
+	</style>

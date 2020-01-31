@@ -1,0 +1,161 @@
+<html>
+
+<head>
+
+<title>Query Players</title>
+
+<script src="../jquery-1.11.1.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	$( window ).load(function() {
+
+        $.ajax({url: "queryPlayers.php", success: function(result){
+
+            $("#playerTable").html(result);
+
+        }});
+		  });
+    $("#data").keyup(function() {
+        $.get("queryPlayers.php", {data:$('#data').val(),
+									field:$('#field').val()},
+
+            function(result){
+
+                  $("#playerTable").html(result);
+
+            });
+
+    });
+	$("#field").change(function() {
+        $.get("queryPlayers.php", {data:$('#data').val(),
+									field:$('#field').val()},
+
+            function(result){
+
+                  $("#playerTable").html(result);
+
+            });
+
+    });
+
+});
+
+</script>
+
+</head>
+
+<body>
+<div class="theForm">
+<H1>Player Table</H1>
+	<p>Field:
+
+<select id="field">
+		<option selected value=NULL> Please Select Field </option>
+      <option value="JERSEY">Jersey Number</option>
+	  <option value="FIRSTNAME">First Name</option>
+      <option value="LASTNAME">Last Name</option>
+	    <option value="AGE">Age</option>
+		  <option value="YRS_ON_CONTRACT">Years Remaining</option>
+		    <option value="YRS_ON_TEAM">Years on Team</option>
+			    <option value="CONTRACT">Contract Type</option>
+				  <option value="MONEY_IN_MILLIONS">Money</option>
+
+</select>
+
+</p>
+
+	<p>
+		Data: <input id = "data" type = "text" name = "data">
+	</p>
+</div>
+<div id="targetDiv"></div>
+
+<table border='2' width="50%" id="playerTable"></table>
+
+
+
+</body>
+
+</html>
+
+<br>
+<a href="../homepage.html"> <-- Back to Home Page </a>
+
+<style>
+body 
+{
+	background-image: url("https://i.redd.it/srhgauhdx9a41.jpg");
+	background-color:#000000;
+	background-size:auto;
+	 background-position:center;
+		//background-repeat:no-repeat;
+		 background-attachment: fixed;
+	font-size:20px;
+	font-weight:bold;		
+	color:#e6b800;
+
+	}
+	img#one
+	{
+	float:left;
+	}
+	img#two
+	{
+	float:right;
+	}
+
+	h1,h6
+	{
+	color:#e6b800;
+	   text-shadow: 2px 2px #000000;
+	text-align:center;
+	}
+
+	table
+	{
+	text-align:center;
+	font-size:19px;
+	 margin-left:auto; 
+    margin-right:auto; 
+	background-color:#003311;
+	width:900px;
+	}
+
+.theForm
+	{
+	text-align:left;color:#fcba03;
+	background-color:#003311;opacity:0.9;
+	//padding:10px;
+	width:900px;
+	 margin-left:auto; 
+    margin-right:auto; 
+	}
+
+	a
+	{
+	font-size:18px;
+	background-color:#ffff00;
+	border: 2px dashed #000000;
+	padding:1px;
+	}
+	
+	p
+	{
+	  color:#e6b800;
+	    text-shadow: 2px 2px #000000;
+	font-size:30px;
+	padding:1px;
+	text-align:center;
+	}
+	
+	table, th, td {
+		border: 1px solid #999900;
+		padding: 5px;
+	}
+	table {
+		border-spacing: 10px;
+	}
+}
+	</style>

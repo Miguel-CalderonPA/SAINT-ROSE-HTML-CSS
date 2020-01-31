@@ -1,0 +1,189 @@
+<html>
+
+<head>
+
+<title>Add Player</title>
+
+<script src="../jquery-1.11.1.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $("#enter").click(function() {
+
+        $.get("addPlayer.php", {first:$('#first').val(),
+								last:$('#last').val(),
+								number:$('#number').val(), 
+								age:$('#age').val(),
+								remain:$('#remain').val(),
+								team:$('#team').val(),
+								contract:$('#contract').val(),
+								amount:$('#amount').val()
+								},
+
+            function(result){
+
+                  $("#div1").html(result);
+
+            });
+
+    });
+
+});
+
+</script>
+
+</head>
+
+<body>
+<div class="header">
+
+
+
+		<h1> Sign Player </h1>
+
+	</div>
+
+<br>
+
+<div class="theForm">
+<p>Firstname: <input type="text" id="first" size=25 maxlength=25 ></p>
+
+<p>Lastname: <input type="text" id="last" size=25 maxlength=25></p>
+
+<p>Jersey # <input type="number" id="number" min=1 max=99 ></p>
+
+<p>Age: <input type="number" id="age" min=19 max=999></p>
+
+<p>Years remaining on Contract: <input type="number" id="remain" min=1 max=10></p>
+
+<p>Years on team: <input type="number" id="team" min=1 max=30 ></p>
+
+<p>Rookie Or Veteran Contract:
+
+<select id="contract">
+
+      <option value="Rookie">Rookie</option>
+
+      <option value="Veteran">Veteran</option>
+
+</select>
+
+ <p>Contract Amount (in Millions) <input type="number" id="amount" step=0.01 min=0></p>
+
+<hr>
+
+<p><input type="button" value="Enter Player" id="enter"></p>
+
+<div id="div1"></div>
+
+</div>
+<br><br>
+<a href="../homepage.html"> <-- Back to Project Page </a> 
+
+</body>
+
+</html>
+
+<style>
+body 
+{
+	background-image: url("https://external-preview.redd.it/KPqHnX4XP91VOEj1Ln6U1gS02hzLzvG8VV-nSJAQ14E.jpg?auto=webp&s=2c6c250eb666bd965871102769af9d92dea739a5");
+	background-color:#33cc33;
+	background-size:cover;
+	background-postion:fliph;
+	font-size:20px;
+	font-weight:bold;		<!--backgr (look up transforming background image)-->
+	color:#66ff33;
+
+	}
+	img#one
+	{
+	float:left;
+	width:300px;
+	height:400px;
+	}
+	img#two
+	{
+	float:right;
+	width:250px;
+	height:400px;
+	}
+
+	h1,h6
+	{
+	color:#33cc33;
+	}
+
+	table
+	{
+	text-align:center;
+	color:#000000;
+	background-color:#33cc33; <!--opacity:1.5-;-->
+	}
+
+	ol,ul
+	{
+	color:#33cc33;
+	}
+
+	.header
+	{
+	text-align:center;
+	background-color:#000000;opacity:0.9;
+	font-size:25px;
+	padding:1px;
+	}
+	.theForm
+	{
+	text-align:left;color:#67f416;
+	background-color:#000000;opacity:0.9;
+	padding:10px;
+	
+	}
+	.header
+	{
+	text-align:center;
+	background-color:#000000;opacity:0.8;
+	font-size:25px;
+	padding:1px;
+	}
+
+	.query
+	{
+	text-align:center;color:#33cc33;
+	background-color:#000000;opacity:0.8;
+	padding:10px;
+	
+	}
+	.info
+	{
+	text-align:center;color:#33cc33;
+	background-color:#000000;opacity:0.8;
+	padding:10px;
+	
+	}
+
+	a
+	{
+	font-size:18px;
+	background-color:#ffff00;
+	border: 2px dashed #000000;
+	padding:7px;
+	}
+
+	blockquote
+	{
+	float:left;
+	color:#33cc33;
+	background-color:#000000;opacity:0.8;
+	}
+
+	div
+	{
+	width:500px;
+	margin:auto;
+	}
+
+</style>
