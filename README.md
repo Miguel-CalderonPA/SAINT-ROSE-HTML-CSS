@@ -1,2 +1,2 @@
 # SAINT-ROSE-HTML-CSS
-HTML/CSS with non-running PHP/MySQL 
+HTML/CSS with non-running PHP/MySQL/AJAX
